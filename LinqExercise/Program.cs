@@ -83,16 +83,19 @@ namespace LinqExercise
             Console.WriteLine("Print the Sum of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35.");
 
             var filteredByYOE = employees.Where(employee => employee.YearsOfExperience <= 10 && employee.Age > 35);
-            var sumOfYOE = employees.Sum(employee => employee.YearsOfExperience);
+            var sumOfYOE = filteredByYOE.Sum(employee => employee.YearsOfExperience);
             Console.WriteLine(sumOfYOE);
 
             Console.WriteLine("-------");
             Console.WriteLine("print the Average of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35");
 
-            var averageOfYOE = employees.Average(employee => employee.YearsOfExperience);
+            var averageOfYOE = filteredByYOE.Average(employee => employee.YearsOfExperience);
             Console.WriteLine(averageOfYOE);
 
             employees.Append(new Employee("Brandon", "Holliday", 30, 2)).ToList();
+
+            var squares = Enumerable.Range(1, 100).Average(x => x * x);
+            Console.WriteLine(squares);
 
             Console.WriteLine();
 
